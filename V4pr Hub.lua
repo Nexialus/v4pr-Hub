@@ -1,3 +1,13 @@
+--welcum messag
+
+local StarterGui = game:GetService("StarterGui")
+	StarterGui:SetCore("ChatMakeSystemMessage", {
+		Text = "Thank you for using V4pr Hub.";
+		Color = Color3.fromRGB(100, 50, 200);
+		Font = Enum.Font.SourceSans;TextSize = 30
+    })
+print("You are using V4pr Hub Version 0.2")
+
 --Gui
 
 local ScreenGui = Instance.new("ScreenGui")
@@ -30,7 +40,7 @@ Title.BorderSizePixel = 0
 Title.Position = UDim2.new(0.0444444455, 0, 0, 0)
 Title.Size = UDim2.new(0, 430, 0, 25)
 Title.Font = Enum.Font.SourceSans
-Title.Text = "v4pr Hub  |  Made by vapr.wav#7496"
+Title.Text = "V4pr Hub V0.2  |  Made by vapr.wav#7496"
 Title.TextColor3 = Color3.fromRGB(0, 0, 0)
 Title.TextSize = 14.000
 
@@ -39,7 +49,7 @@ TitleLogo.Parent = main
 TitleLogo.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 TitleLogo.BorderSizePixel = 0
 TitleLogo.Size = UDim2.new(0, 25, 0, 25)
-TitleLogo.Image = "rbxasset://textures/ui/GuiImagePlaceholder.png"
+TitleLogo.Image = "https://img.icons8.com/nolan/128/v.png"
 
 CMDXbutton.Name = "CMD-X button"
 CMDXbutton.Parent = main
