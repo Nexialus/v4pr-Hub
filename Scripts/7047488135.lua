@@ -1,3 +1,5 @@
+--Speed Run Simulator
+
 getgenv().autoClick = false;
 getgenv().autoRebirth = false;
 getgenv().autoCollectRings = false;
