@@ -9,42 +9,50 @@ function teleportTo(locationCFrame)
     end
 end
 
-spawn(function()
-    while wait(0.1) do
-        if not getgenv().autoClick then
-            break
+function autoClick()
+    spawn(function()
+        while wait(0.1) do
+            if not getgenv().autoClick then
+                break
+            end
+            game:GetService("ReplicatedStorage").Remotes.AddSpeed:FireServer()
         end
-        game:GetService("ReplicatedStorage").Remotes.AddSpeed:FireServer()
-    end
-end)
+    end)
+end
 
-spawn(function()
-    while wait(1) do
-        if not getgenv().autoRebirth then
-            break
+function autoRebirth()
+    spawn(function()
+        while wait(1) do
+            if not getgenv().autoRebirth then
+                break
+            end
+            game:GetService("ReplicatedStorage").Remotes.Rebirth:FireServer()
         end
-        game:GetService("ReplicatedStorage").Remotes.Rebirth:FireServer()
-    end
-end)
+    end)
+end
 
-spawn(function()
-    while wait(1) do
-        if not getgenv().autoCollectRings then
-            break
+function autoCollectRings()
+    spawn(function()
+        while wait(1) do
+            if not getgenv().autoCollectRings then
+                break
+            end
+            teleportTo(game:GetService("Workspace").OrbSpawns.Ring.CFrame)
         end
-        teleportTo(game:GetService("Workspace").OrbSpawns.Ring.CFrame)
-    end
-end)
+    end)
+end
 
-spawn(function()
-    while wait(1) do
-        if not getgenv().autoFinishRace then
-            break
+function autoFinishRace()
+    spawn(function()
+        while wait(1) do
+            if not getgenv().autoFinishRace then
+                break
+            end
+            game:GetService("ReplicatedStorage").Remotes.RaceTrigger:FireServer()
+            teleportTo(game:GetService("Workspace").RaceEnd.CFrame)
         end
-        game:GetService("ReplicatedStorage").Remotes.RaceTrigger:FireServer()
-        teleportTo(game:GetService("Workspace").RaceEnd.CFrame)
-    end
-end)
+    end)
+end
 
 local ScreenGui = Instance.new("ScreenGui")
 local main = Instance.new("ImageLabel")
@@ -90,6 +98,7 @@ FarmRaces.MouseButton1Down:connect(function()
     else
         autoFinishRace = true
     end
+    autoFinishRace()
 end)
 
 AutoRebirth.Name = "AutoRebirth"
@@ -103,6 +112,14 @@ AutoRebirth.Font = Enum.Font.Gotham
 AutoRebirth.Text = "Auto Rebirth"
 AutoRebirth.TextColor3 = Color3.fromRGB(0, 0, 0)
 AutoRebirth.TextSize = 17.000
+AutoRebirth.MouseButton1Down:connect(function()
+    if autoRebirth then
+        autoRebirth = false
+    else
+        autoRebirth = true
+    end
+    autoRebirth()
+end)
 
 TpToVIP.Name = "TpToVIP"
 TpToVIP.Parent = main
@@ -130,6 +147,14 @@ AutoClick.Font = Enum.Font.Gotham
 AutoClick.Text = "Auto Click"
 AutoClick.TextColor3 = Color3.fromRGB(0, 0, 0)
 AutoClick.TextSize = 17.000
+AutoClick.MouseButton1Down:connect(function()
+    if autoClick then
+        autoClick = false
+    else
+        autoClick = true
+    end
+    AutoClick()
+end)
 
 UnlkAllTps.Name = "UnlkAllTps"
 UnlkAllTps.Parent = main
@@ -154,6 +179,14 @@ FarmRings.Font = Enum.Font.Gotham
 FarmRings.Text = "Farm Rings"
 FarmRings.TextColor3 = Color3.fromRGB(0, 0, 0)
 FarmRings.TextSize = 17.000
+FarmRings.MouseButton1Down:connect(function()
+    if farmRings then
+        farmRings = false
+    else
+        farmRings = true
+    end
+    farmRings()
+end)
 
 TitleCredit.Name = "Title&Credit"
 TitleCredit.Parent = main
