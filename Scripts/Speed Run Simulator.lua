@@ -84,11 +84,11 @@ FarmRaces.Font = Enum.Font.Gotham
 FarmRaces.Text = "Farm Races"
 FarmRaces.TextColor3 = Color3.fromRGB(0, 0, 0)
 FarmRaces.TextSize = 17.000
-TextButton.MouseButton1Down:connect(function()
-    if getgenv().autoFinishRace then
-        getgenv().autoFinishRace = false
+FarmRaces.MouseButton1Down:connect(function()
+    if autoFinishRace then
+        autoFinishRace = false
     else
-        getgenv().autoFinishRace = true
+        autoFinishRace = true
     end
 end)
 
@@ -116,7 +116,7 @@ TpToVIP.Text = "Teleport To VIP"
 TpToVIP.TextColor3 = Color3.fromRGB(0, 0, 0)
 TpToVIP.TextSize = 17.000
 TpToVIP.MouseButton1Down:connect(function()
-    teleportTo(game:GetService("Workspace").Teleports.VIP.locationCFrame)
+    teleportTo(game:GetService("Workspace").Teleports.VIP.CFrame)
 end)
 
 AutoClick.Name = "AutoClick"
