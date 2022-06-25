@@ -48,50 +48,42 @@ end)
 
 local ScreenGui = Instance.new("ScreenGui")
 local main = Instance.new("ImageLabel")
-local TextLabel = Instance.new("TextLabel")
-local TextButton = Instance.new("TextButton")
-local TextButton_2 = Instance.new("TextButton")
-local TextButton_3 = Instance.new("TextButton")
-local TextButton_4 = Instance.new("TextButton")
-local TextButton_5 = Instance.new("TextButton")
-local TextButton_6 = Instance.new("TextButton")
+local FarmRaces = Instance.new("TextButton")
+local AutoRebirth = Instance.new("TextButton")
+local TpToVIP = Instance.new("TextButton")
+local AutoClick = Instance.new("TextButton")
+local UnlkAllTps = Instance.new("TextButton")
+local FarmRings = Instance.new("TextButton")
+local TitleCredit = Instance.new("TextLabel")
 
 ScreenGui.Parent = game.CoreGui
 
 main.Name = "main"
-main.Parent = game.Workspace
+main.Parent = ScreenGui
 main.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 main.BackgroundTransparency = 1.000
-main.Position = UDim2.new(0.546875, 0, 0.496054113, 0)
+main.Position = UDim2.new(0.65625, 0, 0.435514033, 0)
 main.Size = UDim2.new(0, 380, 0, 230)
 main.Image = "rbxassetid://3570695787"
-main.ImageColor3 = Color3.fromRGB(62, 52, 66)
+main.ImageColor3 = Color3.fromRGB(55, 52, 68)
 main.ScaleType = Enum.ScaleType.Slice
 main.SliceCenter = Rect.new(100, 100, 100, 100)
-main.SliceScale = 0.120
+main.SliceScale = 0.100
 main.Active = true
 main.Draggable = true
 
   
-TextLabel.Parent = main
-TextLabel.BackgroundColor3 = Color3.fromRGB(43, 37, 50)
-TextLabel.BorderSizePixel = 0
-TextLabel.Size = UDim2.new(0, 380, 0, 25)
-TextLabel.Font = Enum.Font.GothamMedium
-TextLabel.Text = "V4pr Hub V0.3  |  Made by vapr.wav#7496"
-TextLabel.TextColor3 = Color3.fromRGB(232, 145, 235)
-TextLabel.TextSize = 18.000
-
-TextButton.Parent = main
-TextButton.BackgroundColor3 = Color3.fromRGB(129, 111, 166)
-TextButton.BorderColor3 = Color3.fromRGB(27, 42, 53)
-TextButton.BorderSizePixel = 0
-TextButton.Position = UDim2.new(0.51192981, 0, 0.43632865, 0)
-TextButton.Size = UDim2.new(0, 175, 0, 54)
-TextButton.Font = Enum.Font.Gotham
-TextButton.Text = "Farm Races"
-TextButton.TextColor3 = Color3.fromRGB(0, 0, 0)
-TextButton.TextSize = 17.000
+FarmRaces.Name = "FarmRaces"
+FarmRaces.Parent = main
+FarmRaces.BackgroundColor3 = Color3.fromRGB(129, 111, 166)
+FarmRaces.BorderColor3 = Color3.fromRGB(27, 42, 53)
+FarmRaces.BorderSizePixel = 0
+FarmRaces.Position = UDim2.new(0.51192981, 0, 0.43632865, 0)
+FarmRaces.Size = UDim2.new(0, 175, 0, 54)
+FarmRaces.Font = Enum.Font.Gotham
+FarmRaces.Text = "Farm Races"
+FarmRaces.TextColor3 = Color3.fromRGB(0, 0, 0)
+FarmRaces.TextSize = 17.000
 TextButton.MouseButton1Down:connect(function()
     if getgenv().autoFinishRace then
         getgenv().autoFinishRace = false
@@ -100,60 +92,75 @@ TextButton.MouseButton1Down:connect(function()
     end
 end)
 
-TextButton_2.Parent = main
-TextButton_2.BackgroundColor3 = Color3.fromRGB(129, 111, 166)
-TextButton_2.BorderColor3 = Color3.fromRGB(27, 42, 53)
-TextButton_2.BorderSizePixel = 0
-TextButton_2.Position = UDim2.new(0.0240351632, 0, 0.43632865, 0)
-TextButton_2.Size = UDim2.new(0, 175, 0, 54)
-TextButton_2.Font = Enum.Font.Gotham
-TextButton_2.Text = "Farm Rings"
-TextButton_2.TextColor3 = Color3.fromRGB(0, 0, 0)
-TextButton_2.TextSize = 17.000
+AutoRebirth.Name = "AutoRebirth"
+AutoRebirth.Parent = main
+AutoRebirth.BackgroundColor3 = Color3.fromRGB(129, 111, 166)
+AutoRebirth.BorderColor3 = Color3.fromRGB(27, 42, 53)
+AutoRebirth.BorderSizePixel = 0
+AutoRebirth.Position = UDim2.new(0.51192981, 0, 0.153719828, 0)
+AutoRebirth.Size = UDim2.new(0, 175, 0, 54)
+AutoRebirth.Font = Enum.Font.Gotham
+AutoRebirth.Text = "Auto Rebirth"
+AutoRebirth.TextColor3 = Color3.fromRGB(0, 0, 0)
+AutoRebirth.TextSize = 17.000
 
-TextButton_3.Parent = main
-TextButton_3.BackgroundColor3 = Color3.fromRGB(129, 111, 166)
-TextButton_3.BorderColor3 = Color3.fromRGB(27, 42, 53)
-TextButton_3.BorderSizePixel = 0
-TextButton_3.Position = UDim2.new(0.0224561952, 0, 0.153719798, 0)
-TextButton_3.Size = UDim2.new(0, 175, 0, 54)
-TextButton_3.Font = Enum.Font.Gotham
-TextButton_3.Text = "Auto Click"
-TextButton_3.TextColor3 = Color3.fromRGB(0, 0, 0)
-TextButton_3.TextSize = 17.000
-
-TextButton_4.Parent = main
-TextButton_4.BackgroundColor3 = Color3.fromRGB(129, 111, 166)
-TextButton_4.BorderColor3 = Color3.fromRGB(27, 42, 53)
-TextButton_4.BorderSizePixel = 0
-TextButton_4.Position = UDim2.new(0.51192981, 0, 0.153719828, 0)
-TextButton_4.Size = UDim2.new(0, 175, 0, 54)
-TextButton_4.Font = Enum.Font.Gotham
-TextButton_4.Text = "Auto Rebirth"
-TextButton_4.TextColor3 = Color3.fromRGB(0, 0, 0)
-TextButton_4.TextSize = 17.000
-
-TextButton_5.Parent = main
-TextButton_5.BackgroundColor3 = Color3.fromRGB(112, 100, 120)
-TextButton_5.BorderColor3 = Color3.fromRGB(27, 42, 53)
-TextButton_5.BorderSizePixel = 0
-TextButton_5.Position = UDim2.new(0.51192981, 0, 0.715942144, 0)
-TextButton_5.Size = UDim2.new(0, 175, 0, 54)
-TextButton_5.Font = Enum.Font.Gotham
-TextButton_5.Text = "Teleport To VIP"
-TextButton_5.TextColor3 = Color3.fromRGB(0, 0, 0)
-TextButton_5.TextSize = 17.000
-TextButton_5.MouseButton1Down:connect(function()
+TpToVIP.Name = "TpToVIP"
+TpToVIP.Parent = main
+TpToVIP.BackgroundColor3 = Color3.fromRGB(112, 100, 120)
+TpToVIP.BorderColor3 = Color3.fromRGB(27, 42, 53)
+TpToVIP.BorderSizePixel = 0
+TpToVIP.Position = UDim2.new(0.51192981, 0, 0.715942144, 0)
+TpToVIP.Size = UDim2.new(0, 175, 0, 54)
+TpToVIP.Font = Enum.Font.Gotham
+TpToVIP.Text = "Teleport To VIP"
+TpToVIP.TextColor3 = Color3.fromRGB(0, 0, 0)
+TpToVIP.TextSize = 17.000
+TpToVIP.MouseButton1Down:connect(function()
     teleportTo(game:GetService("Workspace").Teleports.VIP.locationCFrame)
 end)
 
-TextButton_6.Parent = main
-TextButton_6.BackgroundColor3 = Color3.fromRGB(112, 100, 120)
-TextButton_6.BorderColor3 = Color3.fromRGB(27, 42, 53)
-TextButton_6.BorderSizePixel = 0
-TextButton_6.Position = UDim2.new(0.0250876974, 0, 0.715942144, 0)
-TextButton_6.Size = UDim2.new(0, 175, 0, 54)
-TextButton_6.Font = Enum.Font.Gotham
-TextButton_6.Text = "Unlock All Teleports"
-TextButton_6.TextColor3 = Color3.fromRGB(0, 0, 0)
-TextButton_6.TextSize = 17.000
+AutoClick.Name = "AutoClick"
+AutoClick.Parent = main
+AutoClick.BackgroundColor3 = Color3.fromRGB(129, 111, 166)
+AutoClick.BorderColor3 = Color3.fromRGB(27, 42, 53)
+AutoClick.BorderSizePixel = 0
+AutoClick.Position = UDim2.new(0.0224561952, 0, 0.153719798, 0)
+AutoClick.Size = UDim2.new(0, 175, 0, 54)
+AutoClick.Font = Enum.Font.Gotham
+AutoClick.Text = "Auto Click"
+AutoClick.TextColor3 = Color3.fromRGB(0, 0, 0)
+AutoClick.TextSize = 17.000
+
+UnlkAllTps.Name = "UnlkAllTps"
+UnlkAllTps.Parent = main
+UnlkAllTps.BackgroundColor3 = Color3.fromRGB(112, 100, 120)
+UnlkAllTps.BorderColor3 = Color3.fromRGB(27, 42, 53)
+UnlkAllTps.BorderSizePixel = 0
+UnlkAllTps.Position = UDim2.new(0.0250876974, 0, 0.715942144, 0)
+UnlkAllTps.Size = UDim2.new(0, 175, 0, 54)
+UnlkAllTps.Font = Enum.Font.Gotham
+UnlkAllTps.Text = "Unlock All Teleports"
+UnlkAllTps.TextColor3 = Color3.fromRGB(0, 0, 0)
+UnlkAllTps.TextSize = 17.000
+
+FarmRings.Name = "FarmRings"
+FarmRings.Parent = main
+FarmRings.BackgroundColor3 = Color3.fromRGB(129, 111, 166)
+FarmRings.BorderColor3 = Color3.fromRGB(27, 42, 53)
+FarmRings.BorderSizePixel = 0
+FarmRings.Position = UDim2.new(0.0240351632, 0, 0.43632865, 0)
+FarmRings.Size = UDim2.new(0, 175, 0, 54)
+FarmRings.Font = Enum.Font.Gotham
+FarmRings.Text = "Farm Rings"
+FarmRings.TextColor3 = Color3.fromRGB(0, 0, 0)
+FarmRings.TextSize = 17.000
+
+TitleCredit.Name = "Title&Credit"
+TitleCredit.Parent = main
+TitleCredit.BackgroundColor3 = Color3.fromRGB(43, 37, 50)
+TitleCredit.BorderSizePixel = 0
+TitleCredit.Size = UDim2.new(0, 380, 0, 25)
+TitleCredit.Font = Enum.Font.GothamMedium
+TitleCredit.Text = "V4pr Hub V0.3  |  Made by vapr.wav#7496"
+TitleCredit.TextColor3 = Color3.fromRGB(232, 145, 235)
+TitleCredit.TextSize = 18.000
