@@ -40,6 +40,7 @@ function autoCollectRingsFunc()
                 break
             end
             teleportTo(game:GetService("Workspace").OrbSpawns.Ring.CFrame)
+            wait(0.3)
             teleportTo(game:GetService("Workspace").Teleports.VIP.CFrame)
         end
     end)
@@ -54,7 +55,9 @@ function autoFinishRaceFunc()
             game:GetService("ReplicatedStorage").Remotes.RaceTrigger:FireServer()
             teleportTo(game:GetService("Workspace").Teleports.VIP.CFrame)
             teleportTo(game:GetService("Workspace").RaceEnd.CFrame)
+            wait(0.5)
             teleportTo(game:GetService("Workspace").Teleports.VIP.CFrame)
+            wait(9)
         end
     end)
 end
