@@ -40,6 +40,7 @@ function autoCollectRingsFunc()
                 break
             end
             teleportTo(game:GetService("Workspace").OrbSpawns.Ring.CFrame)
+            teleportTo(game:GetService("Workspace").Teleports.VIP.CFrame)
         end
     end)
 end
