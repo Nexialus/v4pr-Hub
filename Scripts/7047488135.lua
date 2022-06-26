@@ -55,7 +55,7 @@ function autoFinishRaceFunc()
             game:GetService("ReplicatedStorage").Remotes.RaceTrigger:FireServer()
             teleportTo(game:GetService("Workspace").Teleports.VIP.CFrame)
             teleportTo(game:GetService("Workspace").RaceEnd.CFrame)
-            wait(0.2)
+            wait(0.4)
             teleportTo(game:GetService("Workspace").Teleports.VIP.CFrame)
             wait(9)
         end
