@@ -2,7 +2,7 @@ local plrName = game:GetService("Players").LocalPlayer.Name;
 local gameCheck = 1;
 local stopWhile = 0;
 local supportedGames = {
-	7047488135,  --Speed Run Simulator
+	7047488135,  --Speed Run Simulator  |  https://www.roblox.com/games/7047488135/Speed-Run-Simulator
 	0  --do not load
 }
 
