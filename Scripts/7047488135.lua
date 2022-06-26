@@ -11,7 +11,7 @@ function teleportTo(locationCFrame)
     end
 end
 
-function autoClick()
+function autoClickFunc()
     spawn(function()
         while wait(0.1) do
             if not getgenv().autoClick then
@@ -22,7 +22,7 @@ function autoClick()
     end)
 end
 
-function autoRebirth()
+function autoRebirthFunc()
     spawn(function()
         while wait(1) do
             if not getgenv().autoRebirth then
@@ -33,7 +33,7 @@ function autoRebirth()
     end)
 end
 
-function autoCollectRings()
+function autoCollectRingsFunc()
     spawn(function()
         while wait(1) do
             if not getgenv().autoCollectRings then
@@ -44,7 +44,7 @@ function autoCollectRings()
     end)
 end
 
-function autoFinishRace()
+function autoFinishRaceFunc()
     spawn(function()
         while wait(1) do
             if not getgenv().autoFinishRace then
@@ -83,7 +83,6 @@ main.SliceScale = 0.100
 main.Active = true
 main.Draggable = true
 
-  
 FarmRaces.Name = "FarmRaces"
 FarmRaces.Parent = main
 FarmRaces.BackgroundColor3 = Color3.fromRGB(129, 111, 166)
@@ -96,12 +95,12 @@ FarmRaces.Text = "Farm Races"
 FarmRaces.TextColor3 = Color3.fromRGB(0, 0, 0)
 FarmRaces.TextSize = 17.000
 FarmRaces.MouseButton1Down:connect(function()
-    if autoFinishRace then
-        autoFinishRace = false
+    if getgenv().autoFinishRace then
+        getgenv().autoFinishRace = false
     else
-        autoFinishRace = true
+        getgenv().autoFinishRace = true
     end
-    autoFinishRace()
+    autoFinishRaceFunc()
 end)
 
 AutoRebirth.Name = "AutoRebirth"
@@ -116,12 +115,12 @@ AutoRebirth.Text = "Auto Rebirth"
 AutoRebirth.TextColor3 = Color3.fromRGB(0, 0, 0)
 AutoRebirth.TextSize = 17.000
 AutoRebirth.MouseButton1Down:connect(function()
-    if autoRebirth then
-        autoRebirth = false
+    if getgenv().autoRebirth then
+        getgenv().autoRebirth = false
     else
-        autoRebirth = true
+        getgenv().autoRebirth = true
     end
-    autoRebirth()
+    autoRebirthFunc()
 end)
 
 TpToVIP.Name = "TpToVIP"
@@ -151,12 +150,12 @@ AutoClick.Text = "Auto Click"
 AutoClick.TextColor3 = Color3.fromRGB(0, 0, 0)
 AutoClick.TextSize = 17.000
 AutoClick.MouseButton1Down:connect(function()
-    if autoClick then
-        autoClick = false
+    if getgenv().autoClick then
+        getgenv().autoClick = false
     else
-        autoClick = true
+        getgenv().autoClick = true
     end
-    AutoClick()
+    autoClickFunc()
 end)
 
 UnlkAllTps.Name = "UnlkAllTps"
@@ -183,12 +182,12 @@ FarmRings.Text = "Farm Rings"
 FarmRings.TextColor3 = Color3.fromRGB(0, 0, 0)
 FarmRings.TextSize = 17.000
 FarmRings.MouseButton1Down:connect(function()
-    if farmRings then
-        farmRings = false
+    if getgenv().autoCollectRings then
+        getgenv().autoCollectRings = false
     else
-        farmRings = true
+        getgenv().autoCollectRings = true
     end
-    farmRings()
+    autoCollectRingsFunc()
 end)
 
 TitleCredit.Name = "Title&Credit"
