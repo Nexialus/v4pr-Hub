@@ -90,7 +90,7 @@ main.Draggable = true
 
 FarmRaces.Name = "FarmRaces"
 FarmRaces.Parent = main
-FarmRaces.BackgroundColor3 = Color3.fromRGB(129, 111, 166)
+FarmRaces.BackgroundColor3 = Color3.fromRGB(166, 83, 91)
 FarmRaces.BorderColor3 = Color3.fromRGB(27, 42, 53)
 FarmRaces.BorderSizePixel = 0
 FarmRaces.Position = UDim2.new(0.51192981, 0, 0.43632865, 0)
@@ -102,15 +102,17 @@ FarmRaces.TextSize = 17.000
 FarmRaces.MouseButton1Down:connect(function()
     if getgenv().autoFinishRace then
         getgenv().autoFinishRace = false
+        FarmRaces.BackgroundColor3 = Color3.fromRGB(166, 83, 91)
     else
         getgenv().autoFinishRace = true
+        FarmRaces.BackgroundColor3 = Color3.fromRGB(82, 166, 85)
     end
     autoFinishRaceFunc()
 end)
 
 AutoRebirth.Name = "AutoRebirth"
 AutoRebirth.Parent = main
-AutoRebirth.BackgroundColor3 = Color3.fromRGB(129, 111, 166)
+AutoRebirth.BackgroundColor3 = Color3.fromRGB(166, 83, 91)
 AutoRebirth.BorderColor3 = Color3.fromRGB(27, 42, 53)
 AutoRebirth.BorderSizePixel = 0
 AutoRebirth.Position = UDim2.new(0.51192981, 0, 0.153719828, 0)
@@ -122,8 +124,10 @@ AutoRebirth.TextSize = 17.000
 AutoRebirth.MouseButton1Down:connect(function()
     if getgenv().autoRebirth then
         getgenv().autoRebirth = false
+        AutoRebirth.BackgroundColor3 = Color3.fromRGB(166, 83, 91)
     else
         getgenv().autoRebirth = true
+        AutoRebirth.BackgroundColor3 = Color3.fromRGB(82, 166, 85)
     end
     autoRebirthFunc()
 end)
@@ -133,8 +137,8 @@ TpToVIP.Parent = main
 TpToVIP.BackgroundColor3 = Color3.fromRGB(112, 100, 120)
 TpToVIP.BorderColor3 = Color3.fromRGB(27, 42, 53)
 TpToVIP.BorderSizePixel = 0
-TpToVIP.Position = UDim2.new(0.51192981, 0, 0.715942144, 0)
-TpToVIP.Size = UDim2.new(0, 175, 0, 54)
+TpToVIP.Position = UDim2.new(0.0240350012, 0, 0.715942264, 0)
+TpToVIP.Size = UDim2.new(0, 360, 0, 54)
 TpToVIP.Font = Enum.Font.Gotham
 TpToVIP.Text = "Teleport To VIP"
 TpToVIP.TextColor3 = Color3.fromRGB(0, 0, 0)
@@ -145,7 +149,7 @@ end)
 
 AutoClick.Name = "AutoClick"
 AutoClick.Parent = main
-AutoClick.BackgroundColor3 = Color3.fromRGB(129, 111, 166)
+AutoClick.BackgroundColor3 = Color3.fromRGB(166, 83, 91)
 AutoClick.BorderColor3 = Color3.fromRGB(27, 42, 53)
 AutoClick.BorderSizePixel = 0
 AutoClick.Position = UDim2.new(0.0224561952, 0, 0.153719798, 0)
@@ -157,15 +161,17 @@ AutoClick.TextSize = 17.000
 AutoClick.MouseButton1Down:connect(function()
     if getgenv().autoClick then
         getgenv().autoClick = false
+        AutoClick.BackgroundColor3 = Color3.fromRGB(166, 83, 91)
     else
         getgenv().autoClick = true
+        AutoClick.BackgroundColor3 = Color3.fromRGB(82, 166, 85)
     end
     autoClickFunc()
 end)
 
 FarmRings.Name = "FarmRings"
 FarmRings.Parent = main
-FarmRings.BackgroundColor3 = Color3.fromRGB(129, 111, 166)
+FarmRings.BackgroundColor3 = Color3.fromRGB(166, 83, 91)
 FarmRings.BorderColor3 = Color3.fromRGB(27, 42, 53)
 FarmRings.BorderSizePixel = 0
 FarmRings.Position = UDim2.new(0.0240351632, 0, 0.43632865, 0)
@@ -177,8 +183,10 @@ FarmRings.TextSize = 17.000
 FarmRings.MouseButton1Down:connect(function()
     if getgenv().autoCollectRings then
         getgenv().autoCollectRings = false
+        FarmRings.BackgroundColor3 = Color3.fromRGB(166, 83, 91)
     else
         getgenv().autoCollectRings = true
+        FarmRings.BackgroundColor3 = Color3.fromRGB(82, 166, 85)
     end
     autoCollectRingsFunc()
 end)
