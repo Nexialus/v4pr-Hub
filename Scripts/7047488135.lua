@@ -35,7 +35,7 @@ end
 
 function autoCollectRingsFunc()
     spawn(function()
-        while wait() do
+        while wait(0.5) do
             if not getgenv().autoCollectRings then
                 break
             end
