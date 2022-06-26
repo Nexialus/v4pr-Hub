@@ -51,6 +51,7 @@ function autoFinishRaceFunc()
                 break
             end
             game:GetService("ReplicatedStorage").Remotes.RaceTrigger:FireServer()
+            teleportTo(game:GetService("Workspace").Teleports.VIP.CFrame)
             teleportTo(game:GetService("Workspace").RaceEnd.CFrame)
             teleportTo(game:GetService("Workspace").Teleports.VIP.CFrame)
         end
@@ -157,18 +158,6 @@ AutoClick.MouseButton1Down:connect(function()
     end
     autoClickFunc()
 end)
-
-UnlkAllTps.Name = "UnlkAllTps"
-UnlkAllTps.Parent = main
-UnlkAllTps.BackgroundColor3 = Color3.fromRGB(112, 100, 120)
-UnlkAllTps.BorderColor3 = Color3.fromRGB(27, 42, 53)
-UnlkAllTps.BorderSizePixel = 0
-UnlkAllTps.Position = UDim2.new(0.0250876974, 0, 0.715942144, 0)
-UnlkAllTps.Size = UDim2.new(0, 175, 0, 54)
-UnlkAllTps.Font = Enum.Font.Gotham
-UnlkAllTps.Text = "Unlock All Teleports"
-UnlkAllTps.TextColor3 = Color3.fromRGB(0, 0, 0)
-UnlkAllTps.TextSize = 17.000
 
 FarmRings.Name = "FarmRings"
 FarmRings.Parent = main
