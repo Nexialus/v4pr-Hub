@@ -1,9 +1,9 @@
---Speed Run Simulator
+--Blox Hunt
 
-getgenv().autoClick = false;
-getgenv().autoRebirth = false;
-getgenv().autoCollectRings = false;
-getgenv().autoFinishRace = false;
+getgenv().tokenFarm = false
+getgenv().hiderAutoWin = false
+
+local plrHead = game:GetService("Players").LocalPlayer.Character.Head
 
 function teleportTo(locationCFrame)
     if game.Players.LocalPlayer.Character then
@@ -11,65 +11,30 @@ function teleportTo(locationCFrame)
     end
 end
 
-function autoClickFunc()
-    spawn(function()
-        while wait(0.1) do
-            if not getgenv().autoClick then
-                break
-            end
-            game:GetService("ReplicatedStorage").Remotes.AddSpeed:FireServer()
-        end
-    end)
+function tokenFarmFunc()
+	spawn(function()
+		while tokenFarm do
+			firetouchinterest(plrHead,game:GetService("Workspace").Lobby.LobbyObby.Token,0)
+			wait()
+			firetouchinterest(plrHead,game:GetService("Workspace").Lobby.LobbyObby.Token,1)
+		end
+	end)
 end
 
-function autoRebirthFunc()
-    spawn(function()
-        while wait(1) do
-            if not getgenv().autoRebirth then
-                break
-            end
-            game:GetService("ReplicatedStorage").Remotes.Rebirth:FireServer()
-        end
-    end)
+function hiderAutoWinFunc()
+	spawn(function()
+		while hiderAutoWin and wait(1) do
+            teleportTo(game:GetService("Workspace").Lobby.River.RiverGrate.Part.CFrame)
+		end
+	end)
 end
 
-function autoCollectRingsFunc()
-    spawn(function()
-        while wait(0.5) do
-            if not getgenv().autoCollectRings then
-                break
-            end
-            teleportTo(game:GetService("Workspace").OrbSpawns.Ring.CFrame)
-            wait(0.1)
-            teleportTo(game:GetService("Workspace").Teleports.VIP.CFrame)
-        end
-    end)
-end
 
-function autoFinishRaceFunc()
-    spawn(function()
-        while wait(1) do
-            if not getgenv().autoFinishRace then
-                break
-            end
-            game:GetService("ReplicatedStorage").Remotes.RaceTrigger:FireServer()
-            teleportTo(game:GetService("Workspace").Teleports.VIP.CFrame)
-            teleportTo(game:GetService("Workspace").RaceEnd.CFrame)
-            wait(0.4)
-            teleportTo(game:GetService("Workspace").Teleports.VIP.CFrame)
-            wait(9)
-        end
-    end)
-end
 
 local ScreenGui = Instance.new("ScreenGui")
 local main = Instance.new("ImageLabel")
-local FarmRaces = Instance.new("TextButton")
-local AutoRebirth = Instance.new("TextButton")
-local TpToVIP = Instance.new("TextButton")
-local AutoClick = Instance.new("TextButton")
-local UnlkAllTps = Instance.new("TextButton")
-local FarmRings = Instance.new("TextButton")
+local HiderAutoWin = Instance.new("TextButton")
+local TokenFarm = Instance.new("TextButton")
 local TitleCredit = Instance.new("TextLabel")
 
 ScreenGui.Parent = game.CoreGui
@@ -88,107 +53,48 @@ main.SliceScale = 0.100
 main.Active = true
 main.Draggable = true
 
-FarmRaces.Name = "FarmRaces"
-FarmRaces.Parent = main
-FarmRaces.BackgroundColor3 = Color3.fromRGB(166, 83, 91)
-FarmRaces.BorderColor3 = Color3.fromRGB(27, 42, 53)
-FarmRaces.BorderSizePixel = 0
-FarmRaces.Position = UDim2.new(0.51192981, 0, 0.43632865, 0)
-FarmRaces.Size = UDim2.new(0, 175, 0, 54)
-FarmRaces.Font = Enum.Font.Gotham
-FarmRaces.Text = "Farm Races"
-FarmRaces.TextColor3 = Color3.fromRGB(0, 0, 0)
-FarmRaces.TextSize = 17.000
-FarmRaces.MouseButton1Down:connect(function()
-    if getgenv().autoFinishRace then
-        getgenv().autoFinishRace = false
-        FarmRaces.BackgroundColor3 = Color3.fromRGB(166, 83, 91)
+HiderAutoWin.Name = "HiderAutoWin"
+HiderAutoWin.Parent = main
+HiderAutoWin.BackgroundColor3 = Color3.fromRGB(166, 83, 91)
+HiderAutoWin.BorderColor3 = Color3.fromRGB(27, 42, 53)
+HiderAutoWin.BorderSizePixel = 0
+HiderAutoWin.Position = UDim2.new(0.514561355, 0, 0.153719828, 0)
+HiderAutoWin.Size = UDim2.new(0, 174, 0, 184)
+HiderAutoWin.Font = Enum.Font.Gotham
+HiderAutoWin.Text = "Auto Win\n(Hider)"
+HiderAutoWin.TextColor3 = Color3.fromRGB(0, 0, 0)
+HiderAutoWin.TextSize = 24.000
+HiderAutoWin.MouseButton1Down:connect(function()
+    if getgenv().hiderAutoWin then
+        getgenv().hiderAutoWin = false
+        HiderAutoWin.BackgroundColor3 = Color3.fromRGB(166, 83, 91)
     else
-        getgenv().autoFinishRace = true
-        FarmRaces.BackgroundColor3 = Color3.fromRGB(82, 166, 85)
+        getgenv().hiderAutoWin = true
+        HiderAutoWin.BackgroundColor3 = Color3.fromRGB(82, 166, 85)
     end
-    autoFinishRaceFunc()
+    hiderAutoWinFunc()
 end)
 
-AutoRebirth.Name = "AutoRebirth"
-AutoRebirth.Parent = main
-AutoRebirth.BackgroundColor3 = Color3.fromRGB(166, 83, 91)
-AutoRebirth.BorderColor3 = Color3.fromRGB(27, 42, 53)
-AutoRebirth.BorderSizePixel = 0
-AutoRebirth.Position = UDim2.new(0.51192981, 0, 0.153719828, 0)
-AutoRebirth.Size = UDim2.new(0, 175, 0, 54)
-AutoRebirth.Font = Enum.Font.Gotham
-AutoRebirth.Text = "Auto Rebirth"
-AutoRebirth.TextColor3 = Color3.fromRGB(0, 0, 0)
-AutoRebirth.TextSize = 17.000
-AutoRebirth.MouseButton1Down:connect(function()
-    if getgenv().autoRebirth then
-        getgenv().autoRebirth = false
-        AutoRebirth.BackgroundColor3 = Color3.fromRGB(166, 83, 91)
+TokenFarm.Name = "TokenFarm"
+TokenFarm.Parent = main
+TokenFarm.BackgroundColor3 = Color3.fromRGB(166, 83, 91)
+TokenFarm.BorderColor3 = Color3.fromRGB(27, 42, 53)
+TokenFarm.BorderSizePixel = 0
+TokenFarm.Position = UDim2.new(0.027719276, 0, 0.153719828, 0)
+TokenFarm.Size = UDim2.new(0, 174, 0, 184)
+TokenFarm.Font = Enum.Font.Gotham
+TokenFarm.Text = "Farm Tokens"
+TokenFarm.TextColor3 = Color3.fromRGB(0, 0, 0)
+TokenFarm.TextSize = 24.000
+TokenFarm.MouseButton1Down:connect(function()
+    if getgenv().tokenFarm then
+        getgenv().tokenFarm = false
+        TokenFarm.BackgroundColor3 = Color3.fromRGB(166, 83, 91)
     else
-        getgenv().autoRebirth = true
-        AutoRebirth.BackgroundColor3 = Color3.fromRGB(82, 166, 85)
+        getgenv().tokenFarm = true
+        TokenFarm.BackgroundColor3 = Color3.fromRGB(82, 166, 85)
     end
-    autoRebirthFunc()
-end)
-
-TpToVIP.Name = "TpToVIP"
-TpToVIP.Parent = main
-TpToVIP.BackgroundColor3 = Color3.fromRGB(112, 100, 120)
-TpToVIP.BorderColor3 = Color3.fromRGB(27, 42, 53)
-TpToVIP.BorderSizePixel = 0
-TpToVIP.Position = UDim2.new(0.0240350012, 0, 0.715942264, 0)
-TpToVIP.Size = UDim2.new(0, 360, 0, 54)
-TpToVIP.Font = Enum.Font.Gotham
-TpToVIP.Text = "Teleport To VIP"
-TpToVIP.TextColor3 = Color3.fromRGB(0, 0, 0)
-TpToVIP.TextSize = 17.000
-TpToVIP.MouseButton1Down:connect(function()
-    teleportTo(game:GetService("Workspace").Teleports.VIP.CFrame)
-end)
-
-AutoClick.Name = "AutoClick"
-AutoClick.Parent = main
-AutoClick.BackgroundColor3 = Color3.fromRGB(166, 83, 91)
-AutoClick.BorderColor3 = Color3.fromRGB(27, 42, 53)
-AutoClick.BorderSizePixel = 0
-AutoClick.Position = UDim2.new(0.0224561952, 0, 0.153719798, 0)
-AutoClick.Size = UDim2.new(0, 175, 0, 54)
-AutoClick.Font = Enum.Font.Gotham
-AutoClick.Text = "Auto Click"
-AutoClick.TextColor3 = Color3.fromRGB(0, 0, 0)
-AutoClick.TextSize = 17.000
-AutoClick.MouseButton1Down:connect(function()
-    if getgenv().autoClick then
-        getgenv().autoClick = false
-        AutoClick.BackgroundColor3 = Color3.fromRGB(166, 83, 91)
-    else
-        getgenv().autoClick = true
-        AutoClick.BackgroundColor3 = Color3.fromRGB(82, 166, 85)
-    end
-    autoClickFunc()
-end)
-
-FarmRings.Name = "FarmRings"
-FarmRings.Parent = main
-FarmRings.BackgroundColor3 = Color3.fromRGB(166, 83, 91)
-FarmRings.BorderColor3 = Color3.fromRGB(27, 42, 53)
-FarmRings.BorderSizePixel = 0
-FarmRings.Position = UDim2.new(0.0240351632, 0, 0.43632865, 0)
-FarmRings.Size = UDim2.new(0, 175, 0, 54)
-FarmRings.Font = Enum.Font.Gotham
-FarmRings.Text = "Farm Rings"
-FarmRings.TextColor3 = Color3.fromRGB(0, 0, 0)
-FarmRings.TextSize = 17.000
-FarmRings.MouseButton1Down:connect(function()
-    if getgenv().autoCollectRings then
-        getgenv().autoCollectRings = false
-        FarmRings.BackgroundColor3 = Color3.fromRGB(166, 83, 91)
-    else
-        getgenv().autoCollectRings = true
-        FarmRings.BackgroundColor3 = Color3.fromRGB(82, 166, 85)
-    end
-    autoCollectRingsFunc()
+    tokenFarmFunc()
 end)
 
 TitleCredit.Name = "Title&Credit"
